@@ -25,6 +25,7 @@ export interface TranslationContent {
     generate: string;
     copy: string;
     copied: string;
+    currency: string;
 }
 
 export const translations: Record<"sw" | "en", TranslationContent> = {
@@ -55,6 +56,7 @@ export const translations: Record<"sw" | "en", TranslationContent> = {
         generate: "Tengeneza Maelezo",
         copy: "Nakili",
         copied: "Imenakiliwa",
+        currency: "Tsh",
     },
     en: {
         welcome: "Welcome back to your toolkit",
@@ -83,5 +85,6 @@ export const translations: Record<"sw" | "en", TranslationContent> = {
         generate: "Generate Content",
         copy: "Copy",
         copied: "Copied",
+        currency: "$",
     }
 };

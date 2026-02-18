@@ -108,8 +108,8 @@ export default function InvoiceForm() {
             items.forEach((item) => {
                 doc.text(item.description || (language === "sw" ? "Huduma" : "Service"), 25, y);
                 doc.text(item.quantity.toString(), 120, y);
-                doc.text(`${item.rate.toLocaleString()} Tsh`, 140, y);
-                doc.text(`${(item.quantity * item.rate).toLocaleString()} Tsh`, 170, y);
+                doc.text(`${t.currency === "$" ? "$" : ""}${item.rate.toLocaleString()}${t.currency !== "$" ? " " + t.currency : ""}`, 140, y);
+                doc.text(`${t.currency === "$" ? "$" : ""}${(item.quantity * item.rate).toLocaleString()}${t.currency !== "$" ? " " + t.currency : ""}`, 170, y);
                 y += 10;
             });
 
@@ -118,14 +118,14 @@ export default function InvoiceForm() {
             doc.line(20, y, 190, y);
             y += 10;
             doc.text("Subtotal:", 140, y);
-            doc.text(`${subtotal.toLocaleString()} Tsh`, 170, y);
+            doc.text(`${t.currency === "$" ? "$" : ""}${subtotal.toLocaleString()}${t.currency !== "$" ? " " + t.currency : ""}`, 170, y);
             y += 7;
             doc.text("Tax (15%):", 140, y);
-            doc.text(`${tax.toLocaleString()} Tsh`, 170, y);
+            doc.text(`${t.currency === "$" ? "$" : ""}${tax.toLocaleString()}${t.currency !== "$" ? " " + t.currency : ""}`, 170, y);
             y += 10;
             doc.setFontSize(14);
             doc.text("TOTAL:", 140, y);
-            doc.text(`${total.toLocaleString()} Tsh`, 170, y);
+            doc.text(`${t.currency === "$" ? "$" : ""}${total.toLocaleString()}${t.currency !== "$" ? " " + t.currency : ""}`, 170, y);
 
             doc.save(`Invoice_${invoiceNumber}.pdf`);
 
@@ -208,15 +208,15 @@ export default function InvoiceForm() {
                 <div className="pt-6 border-t border-border/50 space-y-2">
                     <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Subtotal</span>
-                        <span>{subtotal.toLocaleString()} Tsh</span>
+                        <span>{t.currency === "$" ? "$" : ""}{subtotal.toLocaleString()}{t.currency !== "$" ? " " + t.currency : ""}</span>
                     </div>
                     <div className="flex justify-between text-sm">
                         <span className="text-muted-foreground">Tax (15%)</span>
-                        <span>{tax.toLocaleString()} Tsh</span>
+                        <span>{t.currency === "$" ? "$" : ""}{tax.toLocaleString()}{t.currency !== "$" ? " " + t.currency : ""}</span>
                     </div>
                     <div className="flex justify-between text-lg font-bold pt-2">
                         <span>Total</span>
-                        <span className="text-primary">{total.toLocaleString()} Tsh</span>
+                        <span className="text-primary">{t.currency === "$" ? "$" : ""}{total.toLocaleString()}{t.currency !== "$" ? " " + t.currency : ""}</span>
                     </div>
                 </div>
 
