@@ -26,6 +26,8 @@ export interface TranslationContent {
     copy: string;
     copied: string;
     currency: string;
+    business_logo: string;
+    upload_logo: string;
 }
 
 export const translations: Record<"sw" | "en", TranslationContent> = {
@@ -57,6 +59,8 @@ export const translations: Record<"sw" | "en", TranslationContent> = {
         copy: "Nakili",
         copied: "Imenakiliwa",
         currency: "Tsh",
+        business_logo: "Nembo ya Biashara",
+        upload_logo: "Pakia Nembo",
     },
     en: {
         welcome: "Welcome back to your toolkit",
@@ -86,5 +90,7 @@ export const translations: Record<"sw" | "en", TranslationContent> = {
         copy: "Copy",
         copied: "Copied",
         currency: "$",
+        business_logo: "Business Logo",
+        upload_logo: "Upload Logo",
     }
 };
